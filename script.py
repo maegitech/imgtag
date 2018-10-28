@@ -116,8 +116,19 @@ while (count < 1):
 
     # search directory
     elif len(line) >= 2 and line[0] == ">se" and len(line[1]) > 0:
-        print("placeholder code")
-        # https://stackoverflow.com/questions/5319922/python-check-if-word-is-in-a-string
+        path = os.path.realpath(__file__).split("/")
+        path.pop()
+        s = "/"
+        path = s.join(path)
+
+        with open(path + 'testfile.txt') as f:
+            first_line = f.readline()
+        os.chdir(first_line)
+        formats = ["*.tif", "*.tiff", "*.gif", "*.jpeg", "*.jpg", "*.jif", "*.jfif", "*.jp2", "*.jpx", "*.j2k", "*.j2c", "*.fpx", "*.pcd", "*.png", "*.pdf"]
+        for i in range(len(formats)):
+            for file in glob.glob(formats[i]):
+                if line[1] in file:
+                    print(file)
 
     # write directory
     elif line[0] == ">w":
