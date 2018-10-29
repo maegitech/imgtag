@@ -1,13 +1,6 @@
 import os
 import glob
 
-def getDirectory():
-    path = os.path.realpath(__file__).split("/")
-    path.pop()
-    s = "/"
-    path = s.join(path)
-    print(path)
-
 count = 0
 while (count < 1):
     input = raw_input("use "'">h"'" for help: ")
@@ -17,10 +10,7 @@ while (count < 1):
 
     # add tag to all filenames in directory
     elif len(line) >= 3 and line[0] == ">a" and len(line[1]) > 0 and line[2] == "all":
-        path = os.path.realpath(__file__).split("/")
-        path.pop()
-        s = "/"
-        path = s.join(path)
+        path = os.path.dirname(os.path.realpath(__file__))
 
         with open(path + 'testfile.txt') as f:
             first_line = f.readline()
@@ -32,10 +22,7 @@ while (count < 1):
 
     # add tag to selected filenames
     elif len(line) >= 3 and line[0] == ">a" and len(line[1]) > 0 and len(line[2]) > 0:
-        path = os.path.realpath(__file__).split("/")
-        path.pop()
-        s = "/"
-        path = s.join(path)
+        path = os.path.dirname(os.path.realpath(__file__))
 
         with open(path + 'testfile.txt') as f:
             first_line = f.readline()
@@ -52,10 +39,7 @@ while (count < 1):
 
     # remove tag from all filenames in directory
     elif len(line) >= 3 and line[0] == ">ra" and len(line[1]) > 0 and line[2] == "all":
-        path = os.path.realpath(__file__).split("/")
-        path.pop()
-        s = "/"
-        path = s.join(path)
+        path = os.path.dirname(os.path.realpath(__file__))
 
         with open(path + 'testfile.txt') as f:
             first_line = f.readline()
@@ -68,10 +52,7 @@ while (count < 1):
 
     # remove tag from selected filenames
     elif len(line) >= 3 and line[0] == ">ra" and len(line[1]) > 0 and len(line[2]) > 0:
-        path = os.path.realpath(__file__).split("/")
-        path.pop()
-        s = "/"
-        path = s.join(path)
+        path = os.path.dirname(os.path.realpath(__file__))
 
         with open(path + 'testfile.txt') as f:
             first_line = f.readline()
@@ -89,10 +70,7 @@ while (count < 1):
 
     # read directory
     elif line[0] == ">rd":
-        path = os.path.realpath(__file__).split("/")
-        path.pop()
-        s = "/"
-        path = s.join(path)
+        path = os.path.dirname(os.path.realpath(__file__))
 
         file = open(path + "testfile.txt", "r") 
         print file.read()
@@ -100,10 +78,7 @@ while (count < 1):
 
     # scan directory
     elif line[0] == ">s":
-        path = os.path.realpath(__file__).split("/")
-        path.pop()
-        s = "/"
-        path = s.join(path)
+        path = os.path.dirname(os.path.realpath(__file__))
 
         with open(path + 'testfile.txt') as f:
             first_line = f.readline()
@@ -116,10 +91,7 @@ while (count < 1):
 
     # search directory
     elif len(line) >= 2 and line[0] == ">se" and len(line[1]) > 0:
-        path = os.path.realpath(__file__).split("/")
-        path.pop()
-        s = "/"
-        path = s.join(path)
+        path = os.path.dirname(os.path.realpath(__file__))
 
         with open(path + 'testfile.txt') as f:
             first_line = f.readline()
@@ -132,10 +104,7 @@ while (count < 1):
 
     # write directory
     elif line[0] == ">w":
-        path = os.path.realpath(__file__).split("/")
-        path.pop()
-        s = "/"
-        path = s.join(path)
+        path = os.path.dirname(os.path.realpath(__file__))
 
         file = open(path + "testfile.txt","w")
         dir = raw_input("enter new directory: ")
